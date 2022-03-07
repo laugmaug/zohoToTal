@@ -37,7 +37,7 @@
         $jsonObj = json_encode($_GET["item_id"]);
         var_dump($jsonObj);
         
-        echo send_request_to_tal_api("v2/offers/count", $jsonObj);
+        var_dump( send_request_to_tal_api("v2/offers/count", $jsonObj));
         /*
         //https://seller-api.takealot.com/api-docs/#/Create%20an%20offer/create_offer_by_identifier_v2
         $response = file_get_contents("https://seller-api.takealot.com/v2/offers");
