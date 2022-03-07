@@ -15,9 +15,10 @@
         
         $jsonObj = json_encode($_GET["item_id"]);
         var_dump($jsonObj);
-
+        echo "<br/>";
+        
         //take-a-lot API response handler
-        //var_dump($response);
+        var_dump($response);
 
     }
 
