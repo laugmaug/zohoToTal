@@ -12,13 +12,9 @@
         $response = file_get_contents("https://seller-api.takealot.com/v2/offers");
 
         echo "Request successfully sent...";
-        echo $response;
 
         //take-a-lot API response handler
-        $json = file_get_contents('php://input');
-        $jsonData = json_decode($json);
-        
-        var_dump($jsonData);
+        var_dump($response);
 
     }
 
