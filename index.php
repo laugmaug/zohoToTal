@@ -1,4 +1,28 @@
 <?php
+    function send_request_to_tal_api($module, $dataObj){
+        $url = "https://seller-api.takealot.com/" . module;
+
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+        $headers = array(
+           "Accept: application/json",
+           "Content-Type: application/json",
+        );
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+
+        $data = $dataObj;
+
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+
+        $resp = curl_exec($curl);
+        curl_close($curl);
+
+        echo $resp;   
+    }
+
 
     if(isset($_GET["create_an_offer"])){
         /*echo "Create an offer request detected...";
