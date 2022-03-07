@@ -1,7 +1,7 @@
 <?php
     function send_request_to_tal_api($module, $dataObj){
-        request_once "auth.php";
-        $url = "https://seller-api.takealot.com/" . module;
+        require_once("auth.php");
+        $url = "https://seller-api.takealot.com/" . $module;
 
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
