@@ -1,5 +1,6 @@
 <?php
     function send_request_to_tal_api($module, $dataObj){
+        request_once "auth.php";
         $url = "https://seller-api.takealot.com/" . module;
 
         $curl = curl_init();
@@ -10,6 +11,7 @@
         $headers = array(
            "Accept: application/json",
            "Content-Type: application/json",
+           "Authentication: " . $Auth
         );
         curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 
