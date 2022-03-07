@@ -9,7 +9,7 @@
         //Take-a-Lot API request block
         require_once("auth.php");
         
-        header("Location: https://seller-api.takealot.com/v2/offers");
+        response = file_get_contents("https://seller-api.takealot.com/v2/offers");
 
         echo "Request successfully sent...";
         echo "";
