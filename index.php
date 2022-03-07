@@ -7,7 +7,7 @@
         echo "<br/>";
 
         $response = file_get_contents("https://seller-api.takealot.com/v2/offers/count");
-        echo $response;
+        var_dump( $response);
         
         //Take-a-Lot API request block
         require_once("auth.php");
