@@ -1,6 +1,7 @@
 <?php
 
-    echo "welcome 2.0";
-    var_dump($_POST);
+    if(isset($_GET["create_an_offer"])){
+           echo "Create an offer found";
+    }
 
 ?>
