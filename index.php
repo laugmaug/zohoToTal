@@ -9,7 +9,7 @@
         //Take-a-Lot API request block
         require_once("auth.php");
         $response = file_get_contents("https://seller-api.takealot.com/v2/offers/count");
-        var_dump($response);
+        echo($response);
         /*
         //https://seller-api.takealot.com/api-docs/#/Create%20an%20offer/create_offer_by_identifier_v2
         $response = file_get_contents("https://seller-api.takealot.com/v2/offers");
