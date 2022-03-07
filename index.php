@@ -1,5 +1,5 @@
 <?php
 
-    echo "welcome";
+    echo "welcome 2.0";
 
 ?>
