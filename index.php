@@ -1,8 +1,10 @@
 <?php
     function send_request_to_tal_api($module, $dataObj){
+        //Add authentication headers & url to be requested
         require_once("auth.php");
         $url = "https://seller-api.takealot.com/" . $module;
 
+        //
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_POST, true);
@@ -35,7 +37,6 @@
         */
         //Take-a-Lot API request block
         $jsonObj = json_encode($_GET["item_id"]);
-        var_dump($jsonObj);
         
         var_dump( send_request_to_tal_api("v2/offers/count", $jsonObj));
         /*
