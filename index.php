@@ -11,8 +11,6 @@
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
         $headers = array(
-           "Accept: application/json",
-           "Content-Type: application/json",
            "Authentication: " . $Auth
         );
         
