@@ -6,7 +6,7 @@
 
         //Set auth headers
         $headers = array(
-           "Authentication: " . $Auth
+           "Authorization: " . $Auth
         );
         
         //Calling Curl Library client for URLs
