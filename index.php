@@ -30,7 +30,7 @@
 
 
     if(isset($_GET["create_an_offer"])){
-        echo "Create an offer request detected...";
+        //echo "Create an offer request detected...";
         /*echo "<br/>";
         echo "Launching Take a Lot API request...";
         echo "<br/>";
