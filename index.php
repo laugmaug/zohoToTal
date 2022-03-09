@@ -1,5 +1,5 @@
 <?php
-    function send_request_to_tal_api($module, $dataObj){
+    function send_request_to_tal_api($module, $dataObj = null){
         //Add authentication headers & url to be requested
         require_once("auth.php");
         $url = "https://seller-api.takealot.com/" . $module;
@@ -7,23 +7,25 @@
         //Calling Curl Library client for URLs
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
+        //Set auth headers
         $headers = array(
            "Authentication: " . $Auth
         );
-        
         curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 
-        $data = $dataObj;
-
-        curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-
         $resp = curl_exec($curl);
+        
+        if($e = curl_error($curl)){
+            $ret = "Error on POST request";
+        }else{
+           $ret = json_decode($resp, true);
+        }
+        
         curl_close($curl);
-
-        return $resp;   
+        
+        return $ret;   
     }
 
 
