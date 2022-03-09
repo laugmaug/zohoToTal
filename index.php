@@ -4,7 +4,7 @@
         require_once("auth.php");
         $url = "https://seller-api.takealot.com/" . $module;
 
-        //
+        //Calling Curl Library client for URLs
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_POST, true);
