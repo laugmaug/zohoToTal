@@ -1,0 +1,27 @@
+void create_an_offer( Map item , Map organization , Map user ) {
+
+  if(!item.isEmpty())
+  {
+    //Perform get request from PHP API
+    url = "https://zoho-tal-api.herokuapp.com/?create_an_offer=1";
+    results = getUrl(url,item);
+    jsonObj = results.toJSONList();
+    //Get TaL posted offers
+    offers = jsonObj.get(0).get("offers");
+    for each  obj in offers
+    {
+      new_item = Map();
+      //Get Item values from JSON object
+      item_name = obj.get("title");
+      item_SKU = obj.get("sku");
+      item_selling_price = obj.get("selling_price");
+      //Map JSON values to dictionary format
+      new_item.put("name",item_name);
+      new_item.put("sku",item_SKU);
+      new_item.put("selling_price",item_selling_price);
+      //Add new item;
+      info zoho.inventory.createRecord("Items","773250789", new_item, "tal_to_inv");
+    }
+  }
+
+}
