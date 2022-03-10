@@ -18,6 +18,8 @@
     curl_close($curl);
     $jsonObj = json_decode($resp);
 
-    var_dump($jsonObj);
+    echo "hi";
+    echo $resp;
+    //var_dump($jsonObj);
 
 ?>
