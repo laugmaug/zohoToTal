@@ -18,7 +18,7 @@
     curl_close($curl);
     $jsonObj = json_decode($resp);
 
-    echo $resp;
+    print_r($resp);
     //var_dump($jsonObj);
 
 ?>
