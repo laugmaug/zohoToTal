@@ -29,9 +29,11 @@
 
 
     if(isset($_GET["import_offers"])){
+        //Import offers/items
         print_r(call_api("v2/offers"));
     }
     else if(isset($_GET["import_sales"])){
+        //import sales with their respective customers
         print_r(call_api("v2/sales"));
     }
 
