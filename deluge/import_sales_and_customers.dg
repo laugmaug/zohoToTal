@@ -1,0 +1,30 @@
+
+//This is a sample function. It will display the name of the contact.
+customerName = customer.get("company_name");
+resultMap = Map();
+//Perform get request from PHP API
+url = "https://zoho-tal-api.herokuapp.com/?import_sales=1";
+results = getUrl(url,customer);
+jsonObj = results.toJSONList();
+//Get TaL posted sales
+sales = jsonObj.get(0).get("sales");
+for each  obj in sales
+{
+	new_sale_order = Map();
+	//new_sale_order.put("customer", obj.get("customer"));
+	new_sale_order.put("customer",customer.get("contact_name"));
+	new_sale_order.put("sales_order",obj.get("order_id"));
+	new_sale_order.put("reference",obj.get("takealot_url_mobi"));
+	new_sale_order.put("sales_order_date",obj.get("order_date"));
+	//Mapped out item to add to sale order
+	sold_item = Map();
+	sold_item.put("name",obj.get("product_title"));
+	sold_item.put("selling_price",obj.get("selling_price"));
+	sold_item.put("sku",obj.get("sku"));
+	new_sale_order.put("item",sold_item);
+	zoho.inventory.createRecord("sale_order",organization.get("organization_id"),new_sale_order);
+}
+resultMap.put("message","Customer name - " + customerName);
+resultMap.put("code",0);
+// 0 - Success ; Other than 0 will consider as failure
+return resultMap;
